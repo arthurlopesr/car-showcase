@@ -21,7 +21,7 @@ const CustomButton = ({ title, containerStyles, handleClick, btnType, textStyles
       className={`custom-btn ${containerStyles}} mt-8 transition duration-400 ease-in-out hover:opacity-80`}
       onClick={handleClick}
     >
-      <span className={`flex-1 ${textStyles}`}>
+      <span className={`flex-1 ${textStyles} text-white`}>
         {title}
       </span>
       {rightIcon && (

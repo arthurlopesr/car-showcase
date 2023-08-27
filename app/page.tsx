@@ -2,6 +2,7 @@ import CarCard from '@/components/carCad/CarCard';
 import CustomFilter from '@/components/customFilter/CustomFilter';
 import Hero from '@/components/hero/Hero';
 import SearchBar from '@/components/searchBar/SearchBar';
+import ShowMore from '@/components/showMore/ShowMore';
 import { fuels, yearsOfProduction } from '@/constants/intex';
 import { fetchCars } from '@/utils';
 
@@ -48,6 +49,12 @@ export default async function Home({ searchParams }: any) {
                     car={car} />
                 ))}
               </div>
+
+              <ShowMore
+                pageNumber={(searchParams.limit || 10) / 10}
+                isNext={(searchParams.limit || 10) > allCars?.length}
+              />
+
             </section>
           ) : (
             <div className='home__error-container'>
