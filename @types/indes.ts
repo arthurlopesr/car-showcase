@@ -22,3 +22,8 @@ export type FiltersProps = {
   limit?: number;
   fuel?: string;
 }
+
+export type OptionsProps = {
+  title: string;
+  value: string;
+}
