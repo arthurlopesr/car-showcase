@@ -4,8 +4,14 @@ import Hero from '@/components/hero/Hero';
 import SearchBar from '@/components/searchBar/SearchBar';
 import { fetchCars } from '@/utils';
 
-export default async function Home() {
-  const allCars = await fetchCars();
+export default async function Home({ searchParams }: any) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams.manufacturer || '',
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || '',
+    limit: searchParams.limit || 10,
+    model: searchParams.model || '',
+  });
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
   return (
@@ -36,7 +42,7 @@ export default async function Home() {
                 ))}
               </div>
             </section>
-          ): (
+          ) : (
             <div className='home__error-container'>
               <h2 className='text-black text-xl font-bold'>Oops, no results.</h2>
               <p>{allCars?.messege}</p>

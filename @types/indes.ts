@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type CarProps = {
   city_mpg: number;
   class: string;
@@ -11,4 +13,12 @@ export type CarProps = {
   model: string;
   transmission: string;
   year: number;
+}
+
+export type FiltersProps = {
+  manufacturer?: string;
+  year?: number;
+  model?: string;
+  limit?: number;
+  fuel?: string;
 }
